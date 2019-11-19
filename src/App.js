@@ -31,7 +31,7 @@ function App() {
         <Button onClick={() => setShowB(true)}>加载</Button>
         <Button onClick={() => setShowB(false)}>回退</Button>
         {showB && (
-          <Placeholder >
+          <Placeholder fallback={<Spin />}>
             <Data />
           </Placeholder>
         )}
