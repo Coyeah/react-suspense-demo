@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState, Suspense, useEffect } from 'react';
 import { Spin, Button } from 'antd';
 import { createFetcher, Placeholder } from './utils';
 import { fetchSomethingApi } from './api';
@@ -8,7 +8,7 @@ const getData = createFetcher(fetchSomethingApi);
 
 const Data = () => (<h1>{getData()}</h1>);
 
-function App() {
+function App () {
   const [showA, setShowA] = useState(false);
   const [showB, setShowB] = useState(false);
 
@@ -38,6 +38,33 @@ function App() {
       </div>
     </div>
   );
+};
+
+
+const cached = {};
+const ErrComponent = () => {
+  let ref = cached;
+  const task = fetchSomethingApi();
+  task.then(res => {
+    ref = res;
+  });
+  console.log(ref, '1');
+  if (ref === cached) {
+    throw task;
+  }
+  console.log(ref, '2');
+  return (
+    <div>{ref}</div>
+  )
+}
+
+function Test () {
+
+  return (
+    <Suspense fallback={<Spin />}>
+      <ErrComponent />
+    </Suspense>
+  )
 }
 
 export default App;

@@ -8,12 +8,40 @@ export const createFetcher = (promiseTask) => {
     task.then(res => {
       ref = res;
     });
+    console.log(ref, '1');
     if (ref === cached) {
       throw task;
     }
+    console.log(ref, '2');
     return ref;
   }
 }
+
+export class Placeholder extends React.Component {
+  state = {
+    promise: null
+  };
+
+  componentDidCatch(e) {
+    if (e instanceof Promise) {
+      this.setState({
+        promise: e
+      }, () => {
+        e.then(() => {
+          this.setState({ promise: null });
+        });
+      });
+    }
+  }
+  render() {
+    const { fallback, children } = this.props
+    const { promise } = this.state
+    return <>
+      { promise ? fallback : children }
+    </>
+  }
+}
+
 
 // export class Base extends React.Component {
 
@@ -47,29 +75,4 @@ export const createFetcher = (promiseTask) => {
 //     return error ? '加载数据中，请稍后...' : children;
 //   }
 // }
-
-export class Placeholder extends React.Component {
-  state = {
-    promise: null
-  };
-
-  componentDidCatch(e) {
-    if (e instanceof Promise) {
-      this.setState({
-        promise: e
-      }, () => {
-        e.then(() => {
-          this.setState({ promise: null });
-        });
-      });
-    }
-  }
-  render() {
-    const { fallback, children } = this.props
-    const { promise } = this.state
-    return <>
-      { promise ? fallback : children }
-    </>
-  }
-}
 
