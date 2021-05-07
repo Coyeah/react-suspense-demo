@@ -8826,11 +8826,6 @@ react-app-polyfill@^1.0.4:
     regenerator-runtime "0.13.3"
     whatwg-fetch "3.0.0"
 
-react-cache@^2.0.0-alpha.1:
-  version "2.0.0-alpha.1"
-  resolved "https://registry.npm.taobao.org/react-cache/download/react-cache-2.0.0-alpha.1.tgz#4c119188248bc988a61268458bc18bd845f2ec19"
-  integrity sha1-TBGRiCSLyYimEmhFi8GL2EXy7Bk=
-
 react-dev-utils@^9.1.0:
   version "9.1.0"
   resolved "https://registry.npm.taobao.org/react-dev-utils/download/react-dev-utils-9.1.0.tgz#3ad2bb8848a32319d760d0a84c56c14bdaae5e81"
@@ -10399,9 +10394,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 ua-parser-js@^0.7.18:
-  version "0.7.20"
-  resolved "https://registry.npm.taobao.org/ua-parser-js/download/ua-parser-js-0.7.20.tgz#7527178b82f6a62a0f243d1f94fd30e3e3c21098"
-  integrity sha1-dScXi4L2pioPJD0flP0w4+PCEJg=
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
 
 uglify-js@3.4.x:
   version "3.4.10"
